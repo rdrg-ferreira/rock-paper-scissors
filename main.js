@@ -67,18 +67,16 @@ function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
         roundWinner = "none";
         displayAction(humanChoice, computerChoice, roundWinner);
-        return;
     }
 
     // if human wins
-    if ((humanChoice === "rock" && computerChoice === "scissors" ) || 
+    else if ((humanChoice === "rock" && computerChoice === "scissors" ) || 
         (humanChoice === "paper" && computerChoice == "rock") ||
         (humanChoice === "scissors" && computerChoice === "paper")) {
             humanScore++;
             roundWinner = "human";
             displayAction(humanChoice, computerChoice, roundWinner);
             updateScores();
-            return;
         }
     
     // if computer wins
@@ -87,7 +85,6 @@ function playRound(humanChoice, computerChoice) {
         roundWinner = "computer";
         displayAction(humanChoice, computerChoice, roundWinner);
         updateScores();
-        return;
     }
 }
 
