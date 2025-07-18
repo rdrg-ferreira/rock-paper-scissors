@@ -8,6 +8,7 @@
 body {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     background-color: rgb(240, 224, 204);
 }
 
@@ -62,8 +63,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 24px;
-    padding: 48px 0;
+    gap: 28px;
+    padding: 64px 0;
 }
 
 button {
@@ -73,4 +74,21 @@ button {
     width: 160px;
     height: 160px;
     background-color: rgb(231, 208, 181);
+}
+
+#footer {
+    border-top: 3px solid rgb(100, 71, 71);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    padding: 24px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: 20px;
+}
+
+a {
+    padding-top: 8px;
 }
