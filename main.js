@@ -8,23 +8,33 @@ function getComputerChoice() {
     return choices[intChoice];
 }
 
-function updateScores(roundWinner) {
-    if (roundWinner === "human") {
-        humanScore++;
+function resetGame() {
+    humanScore = 0;
+    computerScore = 0;
+    updateScores();
 
-        const human = document.querySelector("div.human > p.score");
-        human.textContent = humanScore;
+    // reset display
+    const actionResult = document.querySelector("p.action-result");
+    const action = document.querySelector("p.action");
+    actionResult.textContent = "Let's start";
+    action.textContent = "choose one of the actions";
+}
+
+function updateScores() {
+    const human = document.querySelector("div.human > p.score");
+    human.textContent = humanScore;
+        
+    const computer = document.querySelector("div.computer > p.score");
+    computer.textContent = computerScore;
+
+    // check if someone won
+    if (humanScore === 5) {
+        alert("You won the game!");
+        resetGame();
+    } else if (computerScore === 5) {
+        alert("You lost the game!");
+        resetGame();
     }
-
-    else if (roundWinner === "computer") {
-        computerScore++;
-
-        const computer = document.querySelector("div.computer > p.score");
-        computer.textContent = computerScore;
-    }
-
-    if (humanScore === 5) console.log("You won the game!");
-    else if (computerScore === 5) console.log("You lost the game!");
 }
 
 function displayAction(humanChoice, computerChoice, roundWinner) {
@@ -57,7 +67,6 @@ function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
         roundWinner = "none";
         displayAction(humanChoice, computerChoice, roundWinner);
-        updateScores(roundWinner);
         return;
     }
 
@@ -65,17 +74,19 @@ function playRound(humanChoice, computerChoice) {
     if ((humanChoice === "rock" && computerChoice === "scissors" ) || 
         (humanChoice === "paper" && computerChoice == "rock") ||
         (humanChoice === "scissors" && computerChoice === "paper")) {
+            humanScore++;
             roundWinner = "human";
             displayAction(humanChoice, computerChoice, roundWinner);
-            updateScores(roundWinner);
+            updateScores();
             return;
         }
     
     // if computer wins
     else {
+        computerScore++;
         roundWinner = "computer";
         displayAction(humanChoice, computerChoice, roundWinner);
-        updateScores(roundWinner);
+        updateScores();
         return;
     }
 }
