@@ -1,6 +1,5 @@
 let humanScore = 0;
 let computerScore = 0;
-let roundCounter = 0;
 
 const choices = ["rock", "paper", "scissors"];
 
@@ -10,11 +9,19 @@ function getComputerChoice() {
 }
 
 function updateScores(roundWinner) {
-    if (roundWinner === "human") humanScore++;
-    else if (roundWinner === "computer") computerScore++;
+    if (roundWinner === "human") {
+        humanScore++;
 
-    roundCounter++;
-    console.log(`Round ${roundCounter} -> Human Score: ${humanScore} | Computer Score: ${computerScore}`);
+        const human = document.querySelector("div.human > p.score");
+        human.textContent = humanScore;
+    }
+
+    else if (roundWinner === "computer") {
+        computerScore++;
+
+        const computer = document.querySelector("div.computer > p.score");
+        computer.textContent = computerScore;
+    }
 
     if (humanScore === 5) console.log("You won the game!");
     else if (computerScore === 5) console.log("You lost the game!");
