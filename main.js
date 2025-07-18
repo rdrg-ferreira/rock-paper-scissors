@@ -106,3 +106,17 @@ buttonContainer.addEventListener("click", (e) => {
             break;
     }
 });
+
+buttonContainer.addEventListener("mouseover", (e) => {
+    let target = e.target;
+
+    target.style.borderWidth = "3px";
+    target.style.fontSize = "96px";
+});
+
+buttonContainer.addEventListener("mouseout", (e) => {
+    let target = e.target;
+
+    target.style.borderWidth = "2px";
+    target.style.fontSize = "80px";
+});

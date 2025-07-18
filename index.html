@@ -4,27 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div class="title">Rock, Paper, Scissors!</div>
-    <div class="action-container">
-        <p class="action-result">Let's start</p>
-        <p class="action">choose one of the actions</p>
-    </div>
-    <div class="results">
-        <div class="human">
-            <p class="score">0</p>
-            <p class="text">You</p>
+    <div id="header">Rock Paper Scissors</div>
+    <div id="main">
+        <div class="action-container">
+            <p class="action-result">Let's start</p>
+            <p class="action">choose one of the actions</p>
         </div>
-        <div class="computer">
-            <p class="score">0</p>
-            <p class="text">Computer</p>
+        <div class="results">
+            <div class="human score-box">
+                <p class="score">0</p>
+                <p class="text">You</p>
+            </div>
+            <div class="computer score-box">
+                <p class="score">0</p>
+                <p class="text">Computer</p>
+            </div>
+        </div>
+        <div class="button-container">
+            <button id="rock">✊🏼</button>
+            <button id="paper">🖐🏼</button>
+            <button id="scissors">✌🏼</button>
         </div>
     </div>
-    <div class="button-container">
-        <button id="rock">Rock</button>
-        <button id="paper">Paper</button>
-        <button id="scissors">Scissors</button>
+    <div id="footer">
+        Rodrigo Ferreira
+        <a href="https://github.com/rdrg-ferreira">
+            <img src="./mark-github-24.svg" alt="github's logo" id="github-logo">
+        </a>
     </div>
     <script src="main.js"></script>
 </body>
